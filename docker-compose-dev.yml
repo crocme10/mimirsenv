@@ -20,6 +20,7 @@ services:
       - SQLITE_TEST_FILE=ctl2mimir-test.db
     depends_on:
       - mimir
+      - cosmogony
       - elasticsearch
     volumes:
       - mimir_binaries:/srv/mimir
