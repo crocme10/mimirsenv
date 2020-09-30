@@ -1,3 +1,6 @@
 [submodule "services/ctl2mimir"]
 	path = services/ctl2mimir
 	url = git@github.com:crocme10/ctl2mimir.git
+[submodule "services/client"]
+	path = services/client
+	url = git@github.com:crocme10/ctl2mimir-client.git
