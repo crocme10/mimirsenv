@@ -78,6 +78,18 @@ services:
       context: ./services/bragi
       dockerfile: docker/Dockerfile-dev
     ports:
-      - 5000:5000
+      - 4000:4000
+    environment:
+      - BRAGI_ES=http://elasticsearch:9200
     depends_on:
       - elasticsearch
+
+  bragi-status:
+    container_name: bragi-status
+    build:
+      context: ./services/bragi-status
+      dockerfile: docker/Dockerfile-dev
+    ports:
+      - 5001:5001
+    depends_on:
+      - bragi
