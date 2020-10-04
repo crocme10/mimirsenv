@@ -71,3 +71,13 @@ services:
     depends_on:
       - ctl2mimir
       - client
+
+  bragi:
+    container_name: bragi
+    build:
+      context: ./services/bragi
+      dockerfile: docker/Dockerfile-dev
+    ports:
+      - 5000:5000
+    depends_on:
+      - elasticsearch

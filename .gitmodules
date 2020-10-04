@@ -4,3 +4,6 @@
 [submodule "services/client"]
 	path = services/client
 	url = git@github.com:crocme10/ctl2mimir-client.git
+[submodule "services/bragi-status"]
+	path = services/bragi-status
+	url = git@github.com:crocme10/bragi-status.git
