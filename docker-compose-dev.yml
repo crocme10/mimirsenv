@@ -93,3 +93,13 @@ services:
       - 5001:5001
     depends_on:
       - bragi
+
+  bragi-graphql:
+    container_name: graphql
+    build:
+      context: ./services/bragi-graphql
+      dockerfile: docker/Dockerfile-dev
+    ports:
+      - 4001:4001
+    depends_on:
+      - bragi
