@@ -8,7 +8,7 @@ volumes:
 services:
 
   ctl2mimir:
-    container_name: ctl2mimir
+    container_name: mimir
     build:
       context: ./services/ctl2mimir
       dockerfile: docker/Dockerfile-dev
@@ -27,7 +27,7 @@ services:
       - cosmogony_binary:/srv/cosmogony
 
   mimir:
-    container_name: mimir
+    container_name: mimir_binaries
     build:
       context: ./services/mimir
       dockerfile: docker/Dockerfile
@@ -35,7 +35,7 @@ services:
       - mimir_binaries:/usr/bin
 
   cosmogony:
-    container_name: cosmogony
+    container_name: cosmogony_binary
     build:
       context: ./services/cosmogony
       dockerfile: docker/Dockerfile
@@ -85,7 +85,7 @@ services:
       - elasticsearch
 
   bragi-status:
-    container_name: bragi-status
+    container_name: status
     build:
       context: ./services/bragi-status
       dockerfile: docker/Dockerfile-dev
