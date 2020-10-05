@@ -7,3 +7,6 @@
 [submodule "services/bragi-status"]
 	path = services/bragi-status
 	url = git@github.com:crocme10/bragi-status.git
+[submodule "services/bragi-graphql"]
+	path = services/bragi-graphql
+	url = git@github.com:crocme10/bragi-graphql.git
