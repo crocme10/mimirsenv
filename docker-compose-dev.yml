@@ -8,7 +8,7 @@ volumes:
 services:
 
   ctl2mimir:
-    container_name: mimir
+    container_name: ctl2mimir
     build:
       context: ./services/ctl2mimir
       dockerfile: docker/Dockerfile-dev
@@ -27,7 +27,6 @@ services:
       - cosmogony_binary:/srv/cosmogony
 
   mimir:
-    container_name: mimir_binaries
     build:
       context: ./services/mimir
       dockerfile: docker/Dockerfile
@@ -35,7 +34,6 @@ services:
       - mimir_binaries:/usr/bin
 
   cosmogony:
-    container_name: cosmogony_binary
     build:
       context: ./services/cosmogony
       dockerfile: docker/Dockerfile
@@ -59,6 +57,8 @@ services:
       - 8080:8080
     depends_on:
       - ctl2mimir
+      - bragi-status
+      - bragi-graphql
 
   nginx:
     container_name: nginx
@@ -70,6 +70,7 @@ services:
       - 80:80
     depends_on:
       - ctl2mimir
+      - bragi-status
       - client
 
   bragi:
