@@ -1,10 +1,5 @@
 version: '3.8'
 
-volumes:
-
-  mimir_binaries:
-  cosmogony_binary:
-
 services:
 
   ctl2mimir:
@@ -19,26 +14,7 @@ services:
       - SQLITE_FILE=ctl2mimir-dev.db
       - SQLITE_TEST_FILE=ctl2mimir-test.db
     depends_on:
-      - mimir
-      - cosmogony
       - elasticsearch
-    volumes:
-      - mimir_binaries:/srv/mimir
-      - cosmogony_binary:/srv/cosmogony
-
-  mimir:
-    build:
-      context: ./services/mimir
-      dockerfile: docker/Dockerfile
-    volumes:
-      - mimir_binaries:/usr/bin
-
-  cosmogony:
-    build:
-      context: ./services/cosmogony
-      dockerfile: docker/Dockerfile
-    volumes:
-      - cosmogony_binary:/usr/bin
 
   elasticsearch:
     container_name: elasticsearch
